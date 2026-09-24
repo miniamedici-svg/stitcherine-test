@@ -178,20 +178,28 @@
         <div id="errore"></div>
     </div>
 
-    <script>
+   <script>
         // Legge l'email dalla barra degli indirizzi
         const urlParams = new URLSearchParams(window.location.search);
         const emailStudente = urlParams.get('email');
 
         // Larghezza di partenza in pixel del box
         let larghezzaCorrente = 950;
+
         if (emailStudente) {
+            // Mostra i dati personali e attiva la filigrana
             document.getElementById('benvenuto').innerText = "Benvenuta, " + emailStudente;
             document.getElementById('testoWatermark').innerText = emailStudente;
-document.getElementById('mioVideo').src = "https://drive.google.com/file/d/1FADZousRYj1m__TM8R6igyGmAVQPo3Hf/preview?email=" + encodeURIComponent(email);            document.getElementById('videoBox').style.display = 'block';
+            
+            // Assegna il link del video di Google Drive
+            document.getElementById('mioVideo').src = "https://drive.google.com/file/d/1FADZousRYj1m__TM8R6igyGmAVQPo3Hf/preview";
+            
+            // Rende visibili la barra e il video
+            document.getElementById('videoBox').style.display = 'block';
             document.getElementById('barraUnica').style.display = 'flex';
         } else {
-            document.getElementById('errore').innerText = "Accesso non autorizzato. Per favore, accedi utilizzando il link personale ricevuto su Google Classroom.";
+            // Se manca l'email, mostra l'errore
+            document.getElementById('errore').innerText = "Accesso non autorizzato. Per favore, accedi utilizzando il link personale.";
         }
 
         // Funzione per ingrandire o rimpicciolire con ampio intervallo (da 700px fino a 1850px)
