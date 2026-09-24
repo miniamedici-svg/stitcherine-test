@@ -185,12 +185,10 @@
 
         // Larghezza di partenza in pixel del box
         let larghezzaCorrente = 950;
-
         if (emailStudente) {
             document.getElementById('benvenuto').innerText = "Benvenuta, " + emailStudente;
             document.getElementById('testoWatermark').innerText = emailStudente;
-            document.getElementById('mioVideo').src = "https://drive.google.com/file/d/1FADZousRYj1m__TM8R6igyGmAVQPo3Hf/preview";
-            document.getElementById('videoBox').style.display = 'block';
+document.getElementById('mioVideo').src = "https://drive.google.com/file/d/1FADZousRYj1m__TM8R6igyGmAVQPo3Hf/preview?email=" + encodeURIComponent(email);            document.getElementById('videoBox').style.display = 'block';
             document.getElementById('barraUnica').style.display = 'flex';
         } else {
             document.getElementById('errore').innerText = "Accesso non autorizzato. Per favore, accedi utilizzando il link personale ricevuto su Google Classroom.";
